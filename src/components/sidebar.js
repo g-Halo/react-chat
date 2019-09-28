@@ -1,22 +1,21 @@
-import React from 'react';
-
 import '~/style/sidebar.scss';
+import React from 'react';
 
 class Sidebar extends React.Component {
   render() {
     const element = (
       <div className="sidebar">
         <div className="user-avatar">
-          <img src="/public/images/avatar-example.jpg" />
+          <img src={require('~/assets/images/avatar-example.jpg')} />
         </div>
-        <i className="iconfont iconliaotian active"></i>
-        <i className="iconfont iconlianxiren"></i>
-        <i className="iconfont iconicon-test"></i>
-        <i className="iconfont iconshezhi1"></i>
+        <i className="iconfont iconliaotian active" />
+        <i className="iconfont iconlianxiren" />
+        <i className="iconfont iconicon-test" />
+        <i className="iconfont iconshezhi1" />
       </div>
-    )
-    return element
+    );
+    return element;
   }
 }
 
-module.exports = Sidebar
+module.exports = Sidebar;

@@ -1,11 +1,10 @@
+import Sidebar from '~/components/sidebar';
+import ContactPanel from '~/components/contactPanel';
+import ChatPanel from '~/components/chatPanel';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as homeActions from '../redux/reduces/home';
-
-import Sidebar from "~/components/sidebar"
-import ContactPanel from '~/components/contactPanel'
-import ChatPanel from '~/components/chatPanel'
 
 @connect(
   state => ({home: state.home}),
@@ -21,10 +20,10 @@ class App extends Component {
   render() {
     return (
       <div className="chat-container">
-        <Sidebar></Sidebar>
-        <ContactPanel></ContactPanel>
-        <ChatPanel></ChatPanel>
-    </div>
+        <Sidebar />
+        <ContactPanel />
+        <ChatPanel />
+      </div>
     );
   }
 }

@@ -8,5 +8,6 @@ import './style/less.less';
 import './style/sass.sass';
 import './style/scss.scss';
 import './style/main.scss';
+import './style/iconfont/iconfont.css';
 
 ReactDOM.render(<Root />, document.getElementById('app'));
