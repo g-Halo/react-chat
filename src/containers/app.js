@@ -4,18 +4,18 @@ import ChatPanel from '~/components/chatPanel';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as homeActions from '../redux/reduces/home';
+import * as contactActions from '../redux/reduces/contact';
 
 @connect(
-  state => ({home: state.home}),
-  dispatch => bindActionCreators(homeActions, dispatch)
+  state => ({contact: state.contact}),
+  dispatch => bindActionCreators(contactActions, dispatch)
 )
 class App extends Component {
   state = {
   }
   componentWillMount() {
-    const {initalLogo} = this.props;
-    initalLogo();
+    const {initalContacts} = this.props;
+    initalContacts();
   }
   render() {
     return (
