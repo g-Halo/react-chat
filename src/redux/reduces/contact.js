@@ -1,3 +1,4 @@
+import Api from '~/api';
 import types from './types';
 
 const initialState = {
@@ -5,9 +6,11 @@ const initialState = {
   activeUserId: 1,
 };
 
-export default function reducer(state = initialState, action = {}) {
+export default async function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case types.GET_CONTACTS:
+      const users = await Api('/contacts');
+      console.log(users);
       return {
         ...state,
         contacts: [

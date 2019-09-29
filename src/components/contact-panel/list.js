@@ -23,6 +23,14 @@ class List extends React.Component {
       }
     } = this.props;
 
+    if (!contacts || contacts.length === 0) {
+      return (
+        <div className="contact-panel__list">
+          User not found.
+        </div>
+      );
+    }
+
     const userInfo = contacts.map((user) =>
       (
         <div
