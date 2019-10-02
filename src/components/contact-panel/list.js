@@ -1,4 +1,4 @@
-import * as ContactActions from '~/redux/reduces/contact';
+import ContactActions from '~/redux/reduces/contact/action';
 import '~/style/contact-panel.scss';
 import React from 'react';
 import {connect} from 'react-redux';
@@ -22,7 +22,6 @@ class List extends React.Component {
         activeUserId
       }
     } = this.props;
-
     if (!contacts || contacts.length === 0) {
       return (
         <div className="contact-panel__list">

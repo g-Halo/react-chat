@@ -1,3 +1,6 @@
-import base from './base';
+import Get from './get';
 
-export default base;
+export default {
+  Get
+};
+

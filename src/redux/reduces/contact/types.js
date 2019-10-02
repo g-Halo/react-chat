@@ -8,5 +8,3 @@ export default {
   GET_CONTACTS,
   CHANGE_CONTACT
 };
-
-// export const GET_USER_INFO = 'get_user_info';
