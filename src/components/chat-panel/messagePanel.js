@@ -1,40 +1,27 @@
 import React from 'react';
+import ContactActions from '~/redux/reduces/contact/action';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
+@connect(
+  state => ({contact: state.contact}),
+  dispatch => bindActionCreators(ContactActions, dispatch)
+)
 class MessagePanel extends React.Component {
   render() {
+    const {contact: {contact: {messages}}} = this.props;
+    const currentUser = {username: 'test-01'};
+    const messageBody = messages.map(message =>
+      (
+        <div className={`${message.sender === currentUser.username ? 'owner' : 'target-user'}`}>
+          <img className="chat avatar small" src={require('~/assets/images/avatar-example.jpg')} />
+          <div className="message-box">
+            {message.body}
+          </div>
+        </div>));
     return (
       <div className="chat-message-panel">
-        <div className="chat-message__time fs12">
-          <span>13:03</span>
-        </div>
-
-        <div className="target-user">
-          <img className="chat avatar small" src={require('~/assets/images/avatar-example.jpg')} />
-          <div className="message-box">
-            Hi Joy, How are you
-          </div>
-        </div>
-
-        <div className="owner">
-          <div className="message-box">
-            I am fine.Thank you.
-          </div>
-          <img className="chat avatar small" src={require('~/assets/images/avatar-example.jpg')} />
-        </div>
-
-        <div className="owner">
-          <div className="message-box">
-            Long Time no see.
-          </div>
-          <img className="chat avatar small" src={require('~/assets/images/avatar-example.jpg')} />
-        </div>
-
-        <div className="target-user">
-          <img className="chat avatar small" src={require('~/assets/images/avatar-example.jpg')} />
-          <div className="message-box">
-            呵呵
-          </div>
-        </div>
+        {messageBody}
       </div>
     );
   }

@@ -5,6 +5,7 @@ import {hot} from 'react-hot-loader';
 import Store from '../redux';
 import DevTools from '../redux/DevTools';
 import App from '../containers/app';
+import Login from '../containers/login';
 
 const Router = ({component: Component, children, ...rest}) => (
   <Route
@@ -21,9 +22,8 @@ const Root = () => (
       <div className="router-content">
         {__DEVELOPMENT__ && <DevTools />}
         <Switch>
-          <Router path="/" component={App} >
-            {/* <Router exact path="/docs" component={Docs} /> */}
-          </Router>
+          <Router exact path="/" component={App} />
+          <Router path="/login" component={Login} />
         </Switch>
       </div>
     </Provider>

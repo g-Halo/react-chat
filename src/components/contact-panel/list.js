@@ -11,8 +11,9 @@ import moment from 'moment';
 )
 class List extends React.Component {
   onSwitchUser(user) {
-    const {changeContact} = this.props;
+    const {changeContact, fetchContact} = this.props;
     changeContact(user);
+    fetchContact(user.username);
   }
 
   render() {

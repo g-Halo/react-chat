@@ -3,6 +3,7 @@ import types from './types';
 const initialState = {
   contacts: [],
   activeUserId: 1,
+  contact: {}
 };
 
 export default function reducer(state = initialState, action = {}) {
@@ -16,6 +17,15 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         activeUserId: action.activeUserId
+      };
+    case types.GET_CONTACT:
+      const {user, messages} = action.data;
+      return {
+        ...state,
+        contact: {
+          user,
+          messages
+        }
       };
     default:
       return state;

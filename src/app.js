@@ -1,4 +1,5 @@
 import React from 'react';
+import 'element-theme-default';
 import ReactDOM from 'react-dom';
 import Root from './router';
 
@@ -8,6 +9,7 @@ import './style/less.less';
 import './style/sass.sass';
 import './style/scss.scss';
 import './style/main.scss';
+import './style/login.scss';
 import './style/iconfont/iconfont.css';
 
 ReactDOM.render(<Root />, document.getElementById('app'));

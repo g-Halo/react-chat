@@ -3,18 +3,16 @@ import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import reduxOrder from 'redux-order';
 import reducers from './reduces';
-import DevTools from './DevTools';
+// import DevTools from './DevTools';
 
-const enhancer = compose(
+const enhancer = composeWithDevTools(
   applyMiddleware(reduxOrder()),
-  DevTools.instrument()
+  applyMiddleware(thunk),
 );
 
 const store = createStore(
   reducers,
-  applyMiddleware(thunk),
   enhancer,
-  composeWithDevTools()
 );
 
 export default store;
