@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Notification, Button, Input, Form} from 'element-react';
+import {browserHistory} from 'react-router';
 
 @connect(
   state => ({user: state.user}),
@@ -42,6 +43,7 @@ class App extends Component {
       if (valid) {
         if (this.props.login(this.state.form)) {
           // 登录成功
+          this.props.history.push('/');
         } else {
           Notification({
             message: '用户名或密码有误',

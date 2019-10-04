@@ -1,18 +1,19 @@
 import api from '~/api';
 import types from './types';
 
-function saveToken(token) {
+function saveUser({user, token}) {
   return {
     type: types.LOGIN,
-    token
+    token,
+    user
   };
 }
 
 const login = function (form) {
   return async dispatch => {
     try {
-      const data = (await api.Post('/login', form));
-      dispatch(saveToken(data));
+      const {data: {user, token}} = (await api.Post('/login', form));
+      dispatch(saveUser({user, token}));
       return true;
     } catch (e) {
       console.warn(e);

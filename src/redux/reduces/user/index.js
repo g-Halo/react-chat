@@ -1,3 +1,4 @@
+import session from '~/utils/session';
 import types from './types';
 
 const initialState = {
@@ -7,9 +8,10 @@ const initialState = {
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case types.LOGIN:
+      session.setToken(action.token);
       return {
         ...state,
-        user: {username: 'test-01'}
+        user: action.user
       };
     default:
       return state;
