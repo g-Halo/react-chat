@@ -39,6 +39,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     proxy: config.dev.proxyTable,
     quiet: true,
     stats: "errors-only",
+    disableHostCheck: true,
     watchOptions: {
       poll: config.dev.poll,
     }

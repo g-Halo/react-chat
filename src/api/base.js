@@ -3,7 +3,7 @@ import {Notification} from 'element-react';
 import session from '../utils/session';
 
 const instance = axios.create({
-  baseURL: 'http://go-chat.com/v1',
+  baseURL: 'http://react-chat.com/v1',
   responseType: 'json',
   timeout: 50000
 });
@@ -13,6 +13,7 @@ instance.interceptors.request.use((config) => {
   if (token) {
     config.headers.token = token;
   }
+  config.headers.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NzM5ODYxNDYsImlhdCI6MTU3Mzk1MDE0NiwidXNlcm5hbWUiOiJ0ZXN0MSJ9.fTvF9QfdVBFLijW8WADJgZZpcrqFJqblTJQwDVHsl9w';
   return config;
 });
 
