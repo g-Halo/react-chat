@@ -3,7 +3,7 @@ import {Notification} from 'element-react';
 import session from '../utils/session';
 
 const instance = axios.create({
-  baseURL: 'http://react-chat.com/v1',
+  baseURL: '/v1',
   responseType: 'json',
   timeout: 50000
 });

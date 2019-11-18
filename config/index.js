@@ -4,7 +4,15 @@ module.exports = {
   dev: {
     host: 'localhost',
     port: 8080,
-    proxyTable: {},
+    proxyTable: {
+      '/v1': {
+        target: 'http://localhost:7834',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/v1': '/v1'
+        }  
+      }
+    },
     useEslint: true,
     autoOpenBrowser: false,
     errorOverlay: true,
