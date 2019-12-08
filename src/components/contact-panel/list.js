@@ -13,7 +13,7 @@ class List extends React.Component {
   onSwitchUser(user) {
     const {changeContact, fetchContact} = this.props;
     changeContact(user);
-    fetchContact(user.username);
+    fetchContact(user);
   }
 
   render() {

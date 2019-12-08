@@ -28,9 +28,9 @@ const fetchContacts = function () {
   };
 };
 
-const fetchContact = function (username) {
+const fetchContact = function (user) {
   return async dispatch => {
-    const data = (await api.Get('/contact', {username}));
+    const data = (await api.Get('/room/contact', {username: user.username, room_id: user.room_id}));
     dispatch(getContact(data));
   };
 };

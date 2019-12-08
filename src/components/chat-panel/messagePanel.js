@@ -11,6 +11,14 @@ class MessagePanel extends React.Component {
   render() {
     const {contact: {contact: {messages}}} = this.props;
     const currentUser = {username: 'test-01'};
+    if (messages === null) {
+      return (
+        <div className="chat-message-panel">
+          暂无消息
+        </div>
+      );
+    }
+
     const messageBody = messages.map(message =>
       (
         <div className={`${message.sender === currentUser.username ? 'owner' : 'target-user'}`}>

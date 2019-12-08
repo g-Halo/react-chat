@@ -13,7 +13,7 @@ instance.interceptors.request.use((config) => {
   if (token) {
     config.headers.token = token;
   }
-  config.headers.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NzM5ODYxNDYsImlhdCI6MTU3Mzk1MDE0NiwidXNlcm5hbWUiOiJ0ZXN0MSJ9.fTvF9QfdVBFLijW8WADJgZZpcrqFJqblTJQwDVHsl9w';
+  config.headers.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NzU4MTQwNTcsImlhdCI6MTU3NTc3ODA1NywidXNlcm5hbWUiOiJ0ZXN0MSJ9.axWBGeRF_s4dwF3xlWvAFYKc0utppFCI65p_H8syDuc';
   return config;
 });
 

@@ -22,6 +22,7 @@ class ChatPanel extends React.Component {
         </div>
       );
     }
+
     return (
       <div className="chat-panel">
         <Header />
