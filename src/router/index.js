@@ -6,6 +6,7 @@ import Store from '../redux';
 import DevTools from '../redux/DevTools';
 import App from '../containers/app';
 import Login from '../containers/login';
+import PrivateRoute from "./privateRoute";
 
 const Router = ({component: Component, children, ...rest}) => (
   <Route
@@ -22,7 +23,7 @@ const Root = () => (
       <div className="router-content">
         {__DEVELOPMENT__ && <DevTools />}
         <Switch>
-          <Router exact path="/" component={App} />
+          <PrivateRoute exact path="/" component={App} />
           <Router path="/login" component={Login} />
         </Switch>
       </div>
