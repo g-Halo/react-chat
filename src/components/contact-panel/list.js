@@ -1,5 +1,6 @@
 import ContactActions from '~/redux/reduces/contact/action';
 import '~/style/contact-panel.scss';
+import socket from '~/api/websocket';
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -10,6 +11,18 @@ import moment from 'moment';
   dispatch => bindActionCreators(ContactActions, dispatch)
 )
 class List extends React.Component {
+  componentDidMount() {
+    socket.onopen = function(e) {
+      console.log('websocket on open')
+    }
+    socket.onmessage = function(data) {
+      console.log(data)
+    }
+    socket.on('message', (data) => {
+      console.log(data)
+    })
+  }
+
   onSwitchUser(user) {
     const {changeContact, fetchContact} = this.props;
     changeContact(user);

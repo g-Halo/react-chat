@@ -1,5 +1,6 @@
 import api from '~/api';
 import types from './types';
+import { Redirect } from 'react-router-dom'
 
 function saveUser({user, token}) {
   return {
@@ -12,9 +13,9 @@ function saveUser({user, token}) {
 const login = function (form) {
   return async dispatch => {
     try {
-      const {data: {user, token}} = (await api.Post('/login', form));
-      dispatch(saveUser({user, token}));
-      return true;
+      const data = await api.Post('/login', form);
+      dispatch(saveUser(data));
+      return <Redirect to='/' />
     } catch (e) {
       console.warn(e);
       return false;

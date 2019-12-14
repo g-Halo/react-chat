@@ -1,8 +1,3 @@
-if (typeof window.ws === 'undefined') {
-    window.ws = new WebSocket("ws://localhost:8080/msg");
-}
-
-ws.onopen = function (evt) {
-    console.log("Connection open ...");
-    // ws.send("Hello WebSockets!");
-};
+// import io from 'socket.io-client';
+const HOST="ws://localhost:7834/v1/ws?token=test";
+export default new WebSocket(HOST);
