@@ -2,7 +2,8 @@ import types from './types';
 
 const initialState = {
   contacts: [],
-  activeUserId: 1,
+  activeUsername: '',
+  currentRoomId: '',
   contact: {}
 };
 
@@ -16,7 +17,8 @@ export default function reducer(state = initialState, action = {}) {
     case types.CHANGE_CONTACT:
       return {
         ...state,
-        activeUserId: action.activeUserId
+        activeUsername: action.activeUsername,
+        currentRoomId: action.currentRoomId
       };
     case types.GET_CONTACT:
       const {user, messages} = action.data;
@@ -27,6 +29,8 @@ export default function reducer(state = initialState, action = {}) {
           messages
         }
       };
+    case types.SEND_MESSAGE:
+      console.log(action.data)
     default:
       return state;
   }

@@ -11,7 +11,8 @@ function initalContacts(data) {
 function changeContact(user) {
   return {
     type: types.CHANGE_CONTACT,
-    activeUserId: user.username
+    activeUsername: user.username,
+    currentRoomId: user.room_id
   };
 }
 
@@ -21,6 +22,14 @@ function getContact(data) {
     data
   };
 }
+
+function sendData(data) {
+  return {
+    type: types.SEND_MESSAGE,
+    data
+  }
+}
+
 
 const fetchContacts = function () {
   return dispatch => {
@@ -35,8 +44,16 @@ const fetchContact = function (user) {
   };
 };
 
+const sendMessage = function(roomId, username, message) {
+  return async dispatch => {
+    const data = (await api.Post('/room/push', {room_id: roomId, username: username, message: message}));
+    dispatch(sendData(data));
+  };
+}
+
 export default {
   fetchContacts,
   changeContact,
-  fetchContact
+  fetchContact,
+  sendMessage
 };

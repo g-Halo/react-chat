@@ -7,8 +7,11 @@ const CHANGE_CONTACT = 'change_contact';
 /* @const Get Contact by username */
 const GET_CONTACT = 'get_contact';
 
+const SEND_MESSAGE = 'send_message'
+
 export default {
   GET_CONTACTS,
   CHANGE_CONTACT,
-  GET_CONTACT
+  GET_CONTACT,
+  SEND_MESSAGE
 };

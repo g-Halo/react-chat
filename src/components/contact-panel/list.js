@@ -27,7 +27,7 @@ class List extends React.Component {
     const {
       contact: {
         contacts,
-        activeUserId
+        activeUsername
       }
     } = this.props;
     if (!contacts || contacts.length === 0) {
@@ -43,7 +43,7 @@ class List extends React.Component {
         <div
           key={user.username}
           className={
-            `contact-panel__user ${activeUserId === user.username ? 'active' : ''}`
+            `contact-panel__user ${activeUsername === user.username ? 'active' : ''}`
           }
           onClick={this.onSwitchUser.bind(this, user)}
         >
