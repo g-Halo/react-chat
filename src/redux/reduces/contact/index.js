@@ -21,13 +21,13 @@ export default function reducer(state = initialState, action = {}) {
         currentRoomId: action.currentRoomId
       };
     case types.GET_CONTACT:
-      const {user, messages} = action.data;
+      const {room, user, messages} = action.data;
+      state.contact[room] = {
+        user,
+        messages
+      }
       return {
-        ...state,
-        contact: {
-          user,
-          messages
-        }
+        ...state
       };
     case types.SEND_MESSAGE:
       console.log(action.data)
