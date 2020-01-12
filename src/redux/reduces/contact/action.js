@@ -30,6 +30,13 @@ function sendData(data) {
   }
 }
 
+function getMessage(data) {
+  return {
+    type: types.GET_MESSAGE,
+    data
+  }
+}
+
 
 const fetchContacts = function () {
   return dispatch => {
@@ -55,5 +62,6 @@ export default {
   fetchContacts,
   changeContact,
   fetchContact,
-  sendMessage
+  sendMessage,
+  getMessage
 };

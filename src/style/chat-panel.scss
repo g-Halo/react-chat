@@ -8,6 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 45px;
     .chat-header__user-info {
       display: flex;
     }
@@ -26,6 +27,7 @@
   .chat-message-panel {
     flex: 1;
     margin: 12px 0px;
+    overflow-y: auto;
     .chat-message__time {
       text-align: center;
       span {

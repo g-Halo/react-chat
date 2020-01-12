@@ -28,8 +28,10 @@ class ChatPanel extends React.Component {
       <div className="chat-panel">
         <Header />
         <MessagePanel />
-        <TextHeader />
-        <TextInput />
+        <div>
+          <TextHeader />
+          <TextInput />
+        </div>
       </div>
     );
   }

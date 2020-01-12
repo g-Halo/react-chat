@@ -25,8 +25,12 @@ socket.onmessage = function(res) {
             // 心跳包
             // console.log('heartbeat')
         } else {
-            const data = JSON.parse(res.data)
-            gSocket.prototype.emit('message', data)
+            try {
+                const data = JSON.parse(res.data)
+                gSocket.prototype.emit('message', data)
+            } catch (e) {
+                console.warn(e)
+            }
         }
     }
 }

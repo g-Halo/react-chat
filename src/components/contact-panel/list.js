@@ -11,9 +11,12 @@ import moment from 'moment';
 )
 class List extends React.Component {
   componentDidMount() {
+    const {getMessage} = this.props;
     const socket = this.props.socket.socket
+    // 监听并获取消息
     socket.prototype.on('message', (e) => {
-      console.log('message:', e)
+      console.log('gsocket 接受到来自服务端的消息:', e)
+      getMessage(e)
     })
   }
 

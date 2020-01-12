@@ -34,6 +34,15 @@ export default function reducer(state = initialState, action = {}) {
       };
     case types.SEND_MESSAGE:
       console.log(action.data)
+    case types.GET_MESSAGE:
+      const messageData = action.data;
+      if (typeof messageData !== 'undefined') {
+        state.contact[messageData.room.uuid].messages.push(messageData.message)
+        state.currentContact = state.contact[messageData.room.uuid]
+      }
+      return {
+        ...state
+      }
     default:
       return state;
   }
