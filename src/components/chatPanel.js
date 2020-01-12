@@ -14,8 +14,9 @@ import TextInput from './chat-panel/textInput';
 )
 class ChatPanel extends React.Component {
   render() {
-    const {contact: {contact}} = this.props;
-    if (typeof contact.user === 'undefined') {
+    const {contact: {currentContact}} = this.props;
+
+    if (typeof currentContact.user === 'undefined') {
       return (
         <div className="chat-panel empty">
           嗨，Chat！

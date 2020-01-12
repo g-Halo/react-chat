@@ -4,7 +4,8 @@ const initialState = {
   contacts: [],
   activeUsername: '',
   currentRoomId: '',
-  contact: {}
+  contact: {},
+  currentContact: {}
 };
 
 export default function reducer(state = initialState, action = {}) {
@@ -23,9 +24,11 @@ export default function reducer(state = initialState, action = {}) {
     case types.GET_CONTACT:
       const {room, user, messages} = action.data;
       state.contact[room] = {
+        room,
         user,
         messages
       }
+      state.currentContact = state.contact[room]
       return {
         ...state
       };

@@ -9,13 +9,13 @@ import {connect} from 'react-redux';
 )
 class Header extends React.Component {
   render() {
-    const {contact: {contact}} = this.props;
+    const {contact: {currentContact}} = this.props;
     return (
       <div className="chat-header">
         <div className="chat-header__user-info">
           <img className="chat avatar normal" src={require('~/assets/images/avatar-example.jpg')} />
           <div className="username">
-            <div>{contact.user.nickname}</div>
+            <div>{currentContact.user.nickname}</div>
             <div className="text-gray fs12">在线</div>
           </div>
         </div>

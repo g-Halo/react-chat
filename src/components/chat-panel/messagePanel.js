@@ -4,14 +4,14 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 @connect(
-  state => ({contact: state.contact}),
+  state => ({contact: state.contact, user: state.user}),
   dispatch => bindActionCreators(ContactActions, dispatch)
 )
 class MessagePanel extends React.Component {
   render() {
-    const {contact: {contact: {messages}}} = this.props;
-    const currentUser = {username: 'test-01'};
-    if (messages === null) {
+    const {contact: {currentContact: {messages}}} = this.props;
+    const currentUser = this.props.user.user
+    if (messages === null || messages.length === 0) {
       return (
         <div className="chat-message-panel">
           暂无消息
