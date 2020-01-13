@@ -20,10 +20,7 @@ class TextInput extends React.Component {
     }
 
     const { sendMessage, contact } = this.props;
-    for(let i = 0; i < 30; i ++) {
-      console.log("调试，同一时间发送30次请求")
-      sendMessage(contact.currentRoomId, contact.activeUsername, message)
-    }
+    sendMessage(contact.currentRoomId, contact.activeUsername, message)
 
     // reset input
     this.refs.textarea.value = ''
